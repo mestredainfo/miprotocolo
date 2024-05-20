@@ -59,19 +59,21 @@ if (!empty($txtID)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar/Editar Clientes - MIProtocolo</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <form name="frmEdit" method="post" action="edit.php?id=<?php echo $txtID; ?>">
-        <div class="form-control">
+        <div class="mb-3">
             <label for="txtNome">Nome</label>
-            <input id="txtNome" name="txtNome" type="text" value="<?php echo $txtNome; ?>" required>
+            <input id="txtNome" name="txtNome" type="text" value="<?php echo $txtNome; ?>" class="form-control" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
 
+    <script src="/bootstrap/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
 
