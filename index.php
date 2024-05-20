@@ -40,7 +40,7 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIProtocolo</title>
-    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -100,7 +100,7 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
             <a href="javascript:window.externo.rodar('https://mestredainfo.wordpress.com/assinantes/');">aqui</a>
         </strong>
     </div>
-    <script src="/bootstrap/bootstrap.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 
     <script>

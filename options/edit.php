@@ -63,7 +63,7 @@ if (!$comRegistro) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro da Empresa - MIProtocolo</title>
-    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -77,7 +77,7 @@ if (!$comRegistro) {
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
 
-    <script src="/bootstrap/bootstrap.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
 

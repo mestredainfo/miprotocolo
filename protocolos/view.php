@@ -116,7 +116,7 @@ while ($row = $db1->fetch()) {
     $sHTML .= '<td colspan="2" style="font-weight:bold;padding-top:7px;">Descrição:</td>';
     $sHTML .= '</tr>';
     $sHTML .= '<tr>';
-    $sHTML .= '<td colspan="2" style="padding-top:3px;">' . nl2br(stripslashes($db1->row('descricao'))) . '</td>';
+    $sHTML .= '<td colspan="2" style="padding-top:3px;">' . stripslashes($db1->row('descricao')) . '</td>';
     $sHTML .= '</tr>';
 
 

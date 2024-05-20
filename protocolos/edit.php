@@ -67,7 +67,7 @@ if (!empty($txtID)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar/Editar Protocolos - MIProtocolo</title>
-    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -102,7 +102,7 @@ if (!empty($txtID)) {
         </div>
         <div class="mb-3">
             <label for="txtDescricao">Descrição</label>
-            <textarea id="txtDescricao" name="txtDescricao" class="form-control" cols="7" rows="7"><?php echo $txtDescricao; ?></textarea>
+            <textarea id="txtDescricao" name="txtDescricao" class="form-control"><?php echo $txtDescricao; ?></textarea>
         </div>
 
         <?php if ($cCliente) { ?>
@@ -115,8 +115,23 @@ if (!empty($txtID)) {
         <?php } ?>
     </form>
 
-    <script src="/bootstrap/bootstrap.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/plugins/tinymce/tinymce.min.js"></script>
     <script src="/js/script.js"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            language: "pt_BR",
+            plugins: '',
+            toolbar: 'bold italic underline | cut copy paste selectall',
+            menubar: false,
+            height: '300px',
+            statusbar: false,
+            branding: false,
+            license_key: 'gpl'
+        });
+    </script>
 </body>
 
 </html>

@@ -25,6 +25,10 @@
     "Configurações": {
         "Cadastro da Empresa": {
             "page": "options/edit.php"
+        },
+        "separator1": {},
+        "Corrigir Dados": {
+            "page": "dados/repair.php"
         }
     },
     "Sobre":

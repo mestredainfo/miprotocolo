@@ -9,35 +9,40 @@ if (!defined('mi')) {
     exit;
 }
 
-$dbConfig['database'] = dirname(__FILE__) . '/dados/miprotocolo.sqlite';
+$dbConfig['database'] = '/home/' . get_current_user() . '/.miprotocolo/dados/miprotocolo.sqlite';
 
 function createDB()
 {
     global $dbConfig;
+
     try {
-        if (!file_exists(dirname(__FILE__) . '/dados/')) {
-            mkdir(dirname(__FILE__) . '/dados/');
+        if (file_exists(dirname(__FILE__) . '/update.txt')) {
+            if (!file_exists('/home/' . get_current_user() . '/.miprotocolo/dados/')) {
+                mkdir('/home/' . get_current_user() . '/.miprotocolo/dados/', 0777, true);
+            }
+
+            $db1 = new SQLite3($dbConfig['database']);
+
+            $db1->exec("CREATE TABLE IF NOT EXISTS mi_options (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL
+            );");
+
+            $db1->exec("CREATE TABLE IF NOT EXISTS mi_clientes (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL
+            );");
+
+            $db1->exec("CREATE TABLE IF NOT EXISTS mi_protocolos (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            idcliente INTEGER NOT NULL,
+            descricao TEXT NOT NULL
+            )");
+
+            $db1->close();
+
+            unlink(dirname(__FILE__) . '/update.txt');
         }
-
-        $db1 = new SQLite3($dbConfig['database']);
-
-        $db1->exec("CREATE TABLE IF NOT EXISTS mi_options (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL
-        );");
-
-        $db1->exec("CREATE TABLE IF NOT EXISTS mi_clientes (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL
-        );");
-
-        $db1->exec("CREATE TABLE IF NOT EXISTS mi_protocolos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        idcliente INTEGER NOT NULL,
-        descricao TEXT NOT NULL
-        )");
-
-        $db1->close();
     } catch (SQLite3Exception $e) {
         // Em caso de erro, exibe a mensagem de erro
         echo "Erro ao criar o banco de dados: " . $e->getMessage();
