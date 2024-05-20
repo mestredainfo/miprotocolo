@@ -17,14 +17,14 @@ include_once($documentroot . '/includes.php');
 
 $txtID = CleanGET('id');
 if (requestPOST()) {
-    $txtNome = CleanPOST('txtNome');
+    $txtIDCliente = CleanPOST('txtIDCliente');
     $txtDescricao = addslashes(CleanPOST('txtDescricao'));
 
     if (empty($txtID)) {
         $db2 = new insert($dbConfig, insert::sqlite3ReadWrite);
         $db2->ativarPrepare()
             ->table('mi_protocolos')
-            ->insertValue('nome', $txtNome)
+            ->insertValue('idcliente', $txtIDCliente)
             ->insertValue('descricao', $txtDescricao)
             ->insert();
         $db2->close();
@@ -32,7 +32,7 @@ if (requestPOST()) {
         $db2 = new update($dbConfig, update::sqlite3ReadWrite);
         $db2->ativarPrepare()
             ->table('mi_protocolos')
-            ->insertValue('nome', $txtNome)
+            ->insertValue('idcliente', $txtIDCliente)
             ->insertValue('descricao', $txtDescricao)
             ->where('id', $txtID)
             ->update();
@@ -42,7 +42,7 @@ if (requestPOST()) {
     redirect(servername() . '/index.php?c=1');
 }
 
-$txtNome = '';
+$txtIDCliente = '';
 $txtDescricao = '';
 if (!empty($txtID)) {
     $db1 = new select($dbConfig, select::sqlite3ReadOnly);
@@ -53,7 +53,7 @@ if (!empty($txtID)) {
 
     while ($row = $db1->fetch()) {
         $db1->rows($row);
-        $txtNome = $db1->row('nome');
+        $txtIDCliente = $db1->row('idcliente');
         $txtDescricao = stripslashes($db1->row('descricao'));
     }
 
@@ -67,14 +67,15 @@ if (!empty($txtID)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar/Editar Protocolos - MIProtocolo</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <form name="frmEdit" method="post" action="edit.php?id=<?php echo $txtID; ?>">
-        <div class="form-control">
-            <label for="txtNome">Nome</label>
-            <select id="txtNome" name="txtNome">
+        <div class="mb-3">
+            <label for="txtIDCliente">Nome</label>
+            <select id="txtIDCliente" name="txtIDCliente" class="form-control">
                 <?php
                 $cCliente = false;
                 $db1 = new select($dbConfig, select::sqlite3ReadOnly);
@@ -86,7 +87,7 @@ if (!empty($txtID)) {
                     $db1->rows($row);
 
                     echo '<option value="' . $db1->row('id') . '"';
-                    if ($db1->row('id') == $txtNome) {
+                    if ($db1->row('id') == $txtIDCliente) {
                         echo ' selected="selected"';
                     }
 
@@ -99,9 +100,9 @@ if (!empty($txtID)) {
                 ?>
             </select>
         </div>
-        <div class="form-control">
+        <div class="mb-3">
             <label for="txtDescricao">Descrição</label>
-            <textarea id="txtDescricao" name="txtDescricao"><?php echo $txtDescricao; ?></textarea>
+            <textarea id="txtDescricao" name="txtDescricao" class="form-control" cols="7" rows="7"><?php echo $txtDescricao; ?></textarea>
         </div>
 
         <?php if ($cCliente) { ?>
@@ -114,6 +115,7 @@ if (!empty($txtID)) {
         <?php } ?>
     </form>
 
+    <script src="/bootstrap/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
 
