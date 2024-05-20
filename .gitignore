@@ -1,6 +1,3 @@
 # Composer
 classes/vendor/
 classes/composer.lock
-
-# Banco de Dados
-dados/
