@@ -76,23 +76,26 @@ if (!empty($txtID)) {
             <label for="txtNome">Nome</label>
             <select id="txtNome" name="txtNome">
                 <?php
-                    $db1 = new select($dbConfig, select::sqlite3ReadOnly);
-                    $db1->table('mi_clientes')
-                        ->order('nome')
-                        ->select();
-               
-                    while ($row = $db1->fetch()) {
-                        $db1->rows($row);
+                $cCliente = false;
+                $db1 = new select($dbConfig, select::sqlite3ReadOnly);
+                $db1->table('mi_clientes')
+                    ->order('nome')
+                    ->select();
 
-                        echo '<option value="' . $db1->row('id') . '"';
-                        if ($db1->row('id') == $txtNome) {
-                            echo ' selected="selected"';
-                        }
+                while ($row = $db1->fetch()) {
+                    $db1->rows($row);
 
-                       echo '>' . $db1->row('nome') . '</option>';
+                    echo '<option value="' . $db1->row('id') . '"';
+                    if ($db1->row('id') == $txtNome) {
+                        echo ' selected="selected"';
                     }
-                
-                    $db1->close();
+
+                    echo '>' . $db1->row('nome') . '</option>';
+
+                    $cCliente = true;
+                }
+
+                $db1->close();
                 ?>
             </select>
         </div>
@@ -101,7 +104,14 @@ if (!empty($txtID)) {
             <textarea id="txtDescricao" name="txtDescricao"><?php echo $txtDescricao; ?></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <?php if ($cCliente) { ?>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        <?php } else { ?>
+            <div style="font-weight: bold;text-align:center;">
+                Adicione um cliente para criar um protocolo.<br>
+                Clique no menu Clientes > Adicionar.
+            </div>
+        <?php } ?>
     </form>
 
     <script src="/js/script.js"></script>
