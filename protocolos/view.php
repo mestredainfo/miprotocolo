@@ -67,11 +67,13 @@ $db1 = new select($dbConfig);
 $db1->ativarPrepare()->table('mi_protocolos');
 
 if (requestPOST()) {
-    if (is_array($_POST['ids'])) {
-        $sIDs = $_POST['ids'];
+    if (!empty($_POST['ids'])) {
+        if (is_array($_POST['ids'])) {
+            $sIDs = $_POST['ids'];
 
-        foreach ($sIDs as $valor) {
-            $db1->in()->or()->where('id', $valor);
+            foreach ($sIDs as $valor) {
+                $db1->in()->or()->where('id', $valor);
+            }
         }
     }
 }
