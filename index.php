@@ -40,6 +40,7 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIProtocolo</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -47,9 +48,9 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
     <div style="margin-top:17px;font-size:27px;font-weight:bold;text-align:center;">
         Gerenciar Protocolos
     </div>
-    <table style="width:100%;margin-top:17px;">
+    <table class="table table-striped">
         <thead>
-            <th style="text-align:left;">Nome do Cliente</th>
+            <th>Nome do Cliente</th>
             <th></th>
         </thead>
         <tbody>
@@ -58,12 +59,12 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
 
             $db1 = new select($dbConfig);
             $db1->column('mi_protocolos.id as pid')
-                ->column('mi_protocolos.nome as pnome')
+                ->column('mi_protocolos.idcliente as pidcliente')
                 ->column('mi_clientes.id as cid')
                 ->column('mi_clientes.nome as cnome')
                 ->table('mi_protocolos')
                 ->table('mi_clientes')
-                ->where('pnome', 'cid')
+                ->where('pidcliente', 'cid')
                 ->desc()->order('pid')
                 ->select();
 
@@ -99,6 +100,7 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
             <a href="javascript:window.externo.rodar('https://mestredainfo.wordpress.com/assinantes/');">aqui</a>
         </strong>
     </div>
+    <script src="/bootstrap/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 
     <script>
