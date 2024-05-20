@@ -17,6 +17,13 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
 
         $db2 = new delete($dbConfig);
         $db2->ativarPrepare()
+            ->table('mi_protocolos')
+            ->where('idcliente', $sID)
+            ->delete();
+        $db2->close();
+
+        $db2 = new delete($dbConfig);
+        $db2->ativarPrepare()
             ->table('mi_clientes')
             ->where('id', $sID)
             ->delete();
@@ -33,11 +40,12 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes - MIProtocolo</title>
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <table style="width:100%;">
+    <table class="table table-striped">
         <thead>
             <th style="text-align:left;">Nome do Cliente</th>
             <th></th>
@@ -76,12 +84,7 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
         </tbody>
     </table>
     <hr>
-    <div style="text-align:center;margin-top:17px">
-        <strong>
-            Precisa de suporte? saiba mais clicando
-            <a href="javascript:window.externo.rodar('https://mestredainfo.wordpress.com/assinantes/');">aqui</a>
-        </strong>
-    </div>
+    <script src="/bootstrap/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 
     <script>
