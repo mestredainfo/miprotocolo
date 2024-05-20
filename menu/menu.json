@@ -1,0 +1,48 @@
+{
+    "Clientes": {
+        "Adicionar": {
+            "page": "clientes/edit.php"
+        },
+        "Gerenciar": {
+            "page": "clientes/list.php"
+        }
+    },
+    "Protocolo": {
+        "Adicionar": {
+            "page": "protocolos/edit.php"
+        },
+        "Gerenciar": {
+            "page": "index.php?c=1"
+        },
+        "separator1": {},
+        "Relatório Específico": {
+            "page": "protocolos/selectview.php"
+        },
+        "Relatório Geral": {
+            "page": "protocolos/view.php"
+        }
+    },
+    "Configurações": {
+        "Cadastro da Empresa": {
+            "page": "options/edit.php"
+        }
+    },
+    "Sobre":
+    {
+        "Criar Atalho": {
+            "page": "criaratalho.php"
+        },
+        "Documentação": {
+            "url": "https://mestredainfo.wordpress.com/category/miprotocolo/",
+            "key": "F1"
+        },
+        "Verificar Atualização": {
+            "page": "checkupdate.php?a=1",
+            "newwindow": true
+        },
+        "separator": {},
+        "Sobre o MIProtocolo": {
+            "page": "sobre.php"
+        }
+    }
+}

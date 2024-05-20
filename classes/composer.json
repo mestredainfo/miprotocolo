@@ -1,0 +1,36 @@
+{
+    "name": "mestredainfo/miprotocolo",
+    "version": "1.0.0",
+    "type": "project",
+    "description": "Crie e gerencie protocolos para envio e recebimento de documentos.",
+    "authors": [
+        {
+            "name": "Murilo Gomes Julio",
+            "homepage": "https://mestredainfo.wordpress.com"
+        }
+    ],
+    "_comment": [
+        "Organization: Mestre da Info",
+        "Copyright (C) 2004-2024 Murilo Gomes Julio"
+    ],
+    "license": "GPL-2.0-only",
+    "support": {
+        "docs": "https://mestredainfo.wordpress.com/miprotocolo/",
+        "source": "https://github.com/mestredainfo/miprotocolo"
+    },
+    "funding": [
+        {
+            "type": "other",
+            "url": "https://mestredainfo.wordpress.com/apoie/"
+        }
+    ],
+    "require": {
+        "php": ">= 8.3",
+        "mpdf/mpdf": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MIProtocolo\\": "mi/"
+        }
+    }
+}
