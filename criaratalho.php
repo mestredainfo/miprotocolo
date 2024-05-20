@@ -9,8 +9,8 @@ $sFolder = '/home/' . get_current_user() . '/.local/share/applications/';
 if (file_exists($sFolder)) {
     $sDesktop = "[Desktop Entry]\n
 Version=" . file_get_contents(dirname(__FILE__) . '/version') . "\n
-Name=MIProtoclo\n
-Comment=Gera protocolos para envio e recebimento de documentos\n
+Name=MIProtocolo\n
+Comment=Crie e gerencie protocolos para envio e recebimento de documentos\n
 Type=Application\n
 Exec=" . dirname(__FILE__, 4) . "/miprotocolo\n
 Icon=" . dirname(__FILE__, 2) . "/icon/miprotocolo.png\n
