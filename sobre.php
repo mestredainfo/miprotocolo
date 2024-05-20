@@ -44,6 +44,7 @@ header("Content-Security-Policy: script-src 'self' 'unsafe-inline' script.js");
 
     <p><strong>mPDF:</strong> <a href="javascript:window.externo.rodar('https://github.com/mpdf/mpdf');">github.com/mpdf/mpdf</a></p>
 
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
 
