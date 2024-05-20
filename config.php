@@ -33,7 +33,7 @@ function createDB()
 
         $db1->exec("CREATE TABLE IF NOT EXISTS mi_protocolos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome INTEGER NOT NULL,
+        idcliente INTEGER NOT NULL,
         descricao TEXT NOT NULL
         )");
 
