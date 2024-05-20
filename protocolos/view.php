@@ -77,15 +77,6 @@ if (requestPOST()) {
         }
     }
 }
-// if (!emptyPOST('ids')) {
-//     if (is_array($_POST['ids'])) {
-//         $sIDs = implode(',',$_POST['ids']);
-
-//         $db1->like()->where('id', $sIDs);
-//     }
-
-//     exit;
-// }
 
 $db1->desc()->order('id')
     ->select();
@@ -119,7 +110,7 @@ while ($row = $db1->fetch()) {
     $sHTML .= '</tr>';
 
     $sHTML .= '<tr>';
-    $sHTML .= '<td colspan="2"><span style="font-weight:bold;">Cliente:</span> ' . getCliente($db1->row('nome')) . '</td>';
+    $sHTML .= '<td colspan="2"><span style="font-weight:bold;">Cliente:</span> ' . getCliente($db1->row('idcliente')) . '</td>';
     $sHTML .= '</tr>';
     $sHTML .= '<tr>';
     $sHTML .= '<td colspan="2" style="font-weight:bold;padding-top:7px;">Descrição:</td>';
