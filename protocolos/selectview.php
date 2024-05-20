@@ -39,15 +39,14 @@ function getCliente(int $id): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selecionar Cliente(s) - MIProtocolo</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <form name="frmSelectView" method="post" action="view.php">
-        <table style="width:100%;">
+        <table class="table table-striped">
             <thead>
-                <th></th>
                 <th style="text-align:left;">Selecionar Cliente(s)</th>
             </thead>
             <tbody>
@@ -56,20 +55,20 @@ function getCliente(int $id): string
 
                 $db1 = new select($dbConfig);
                 $db1->column('id')
-                    ->column('nome')
+                    ->column('idcliente')
                     ->table('mi_protocolos')
                     ->order('id')
                     ->select();
                 while ($row = $db1->fetch()) {
                     $sid = empty($row['id']) ? 0 : $row['id'];
-                    $snome = empty($row['nome']) ? '' : getCliente($row['nome']);
+                    $sidcliente = empty($row['idcliente']) ? '' : getCliente($row['idcliente']);
                 ?>
                     <tr>
                         <td class="td-checkbox">
-                            <input name="ids[]" type="checkbox" value="<?php echo $row['id']; ?>">
-                        </td>
-                        <td>
-                            <?php echo $snome; ?>
+                            <div class="form-check">
+                                <input id="ids<?php echo $sid; ?>" name="ids[]" type="checkbox" value="<?php echo $row['id']; ?>" class="form-check-input">
+                                <label for="ids<?php echo $sid; ?>"><?php echo $sidcliente; ?></label>
+                            </div>
                         </td>
                     </tr>
                 <?php
@@ -89,6 +88,7 @@ function getCliente(int $id): string
         <button type="submit" class="btn btn-primary">Gerar Relatório</button>
     </form>
 
+    <script src="/bootstrap/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
 
