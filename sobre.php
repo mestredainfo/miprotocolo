@@ -20,7 +20,6 @@ header("Content-Security-Policy: script-src 'self' 'unsafe-inline' script.js");
 </head>
 
 <body>
-
     <h1>Sobre o App</h1>
     <p>MIProtocolo <?php echo file_get_contents(dirname(__FILE__) . '/version'); ?></p>
     <p>Desenvolvido por: Murilo Gomes Julio</p>
