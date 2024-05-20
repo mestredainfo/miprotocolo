@@ -5,7 +5,7 @@
  * Organização: Mestre da Info
  * Site: https://linktr.ee/mestreinfo
  */
- 
+
 * {
     margin-top: 3px;
     margin-left: 3px;
@@ -19,8 +19,25 @@ body {
     min-height: 100vh;
 }
 
-p, td, th {
+p,
+td,
+th {
     font-size: 18px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #d4d4d4;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 16px;
 }
 
 th {
@@ -34,7 +51,7 @@ td {
 }
 
 .td-checkbox {
-    width: 17px;    
+    width: 17px;
 }
 
 /* Estilo para rótulo (label) */
