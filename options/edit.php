@@ -23,7 +23,7 @@ if (requestPOST()) {
         ->update();
     $db2->close();
 
-    redirect(servername() . '/options/edit.php');
+    redirect(servername() . '/options/edit.php?tipo=atualizado');
 }
 
 $txtNome = '';
@@ -68,6 +68,12 @@ if (!$comRegistro) {
 </head>
 
 <body>
+    <div style="margin-top:17px;font-size:27px;font-weight:bold;text-align:center;">
+        Cadastro da Empresa
+    </div>
+    <?php if (!empty($_GET['tipo'])) { ?>
+        <div class="alert alert-success">Salvo com sucesso!</div>
+    <?php } ?>
     <form name="frmEdit" method="post" action="edit.php">
         <div class="mb-3">
             <label for="txtNome">Nome</label>
