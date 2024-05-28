@@ -5,23 +5,27 @@
 // Organização: Mestre da Info
 // Site: https://linktr.ee/mestreinfo
 
-$sFolder = '/home/' . get_current_user() . '/.local/share/applications/';
-if (file_exists($sFolder)) {
-    $sDesktop = "[Desktop Entry]
-Version=" . file_get_contents(dirname(__FILE__) . '/version') . "
+if (PHP_OS == 'Linux') {
+    $sFolder = '/home/' . get_current_user() . '/.local/share/applications/';
+    if (file_exists($sFolder)) {
+        $sDesktop = '[Desktop Entry]
+Version=' . file_get_contents(dirname(__FILE__) . '/version') . '
 Name=MIProtocolo
 Comment=Crie e gerencie protocolos para envio e recebimento de documentos
 Type=Application
-Exec=" . dirname(__FILE__, 4) . "/miprotocolo
-Icon=" . dirname(__FILE__, 2) . "/icon/miprotocolo.png
-Categories=Office;";
+Exec=' . dirname(__FILE__, 4) . '/miprotocolo
+Icon=' . dirname(__FILE__, 2) . '/icon/miprotocolo.png
+Categories=Utility;';
 
-    $sCreateFile = file_put_contents($sFolder . '/miprotocolo.desktop', $sDesktop);
-    if ($sCreateFile) {
-        echo '<script>window.miapp.mensagem(\'MIProtocolo\', \'Atalho criado no menu iniciar!\', \'info\', false);window.location.assign(\'index.php?c=1\');</script>';
+        $sCreateFile = file_put_contents($sFolder . '/miprotocolo.desktop', $sDesktop);
+        if ($sCreateFile) {
+            echo '<script>window.alert(\'Atalho criado no menu iniciar!\');window.location.assign(\'index.php\');</script>';
+        } else {
+            echo '<script>window.alert(\'Não foi possível criar o atalho no menu iniciar!\');window.location.assign(\'index.php\');</script>';
+        }
     } else {
-        echo '<script>window.miapp.mensagem(\'MIProtocolo\', \'Não foi possível criar o atalho no menu iniciar!\', \'error\', false);window.location.assign(\'index.php?c=1\');</script>';
+        echo '<script>window.alert(\'Não foi possível criar o atalho no menu iniciar!\');window.location.assign(\'index.php\');</script>';
     }
 } else {
-    echo '<script>window.miapp.mensagem(\'MIProtocolo\', \'Não foi possível criar o atalho no menu iniciar!\', \'error\', false);window.location.assign(\'index.php?c=1\');</script>';
+    echo '<script>window.alert(\'No Windows você pode criar um atalho clicando com o botão direito no executável "miprotocolo.exe" e clicando em "Criar Atalho"!\');window.location.assign(\'index.php\');</script>';
 }

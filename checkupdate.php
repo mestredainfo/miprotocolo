@@ -5,10 +5,15 @@
 // Organização: Mestre da Info
 // Site: https://linktr.ee/mestreinfo
 
+header("Content-Security-Policy: default-src 'self'");
+header("Content-Security-Policy: script-src 'self' 'unsafe-inline' script.js");
+
 function checkUpdate($a = false)
 {
     try {
-        echo 'Verificando atualizações...';
+        if ($a) {
+            echo 'Verificando atualizações...';
+        }
 
         $url = 'https://mestredainfo.wordpress.com/miprotocolo/';
 
@@ -17,6 +22,8 @@ function checkUpdate($a = false)
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         $html = curl_exec($ch);

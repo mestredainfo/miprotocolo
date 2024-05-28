@@ -9,7 +9,11 @@ if (!defined('mi')) {
     exit;
 }
 
-$dbConfig['database'] = '/home/' . get_current_user() . '/.miprotocolo/dados/miprotocolo.sqlite';
+if (PHP_OS == 'Linux') {
+    $dbConfig['database'] = '/home/' . get_current_user() . '/.miprotocolo/dados/miprotocolo.sqlite';
+} else {
+    $dbConfig['database'] = 'C:/Users/' . get_current_user() . '/.miprotocolo/dados/miprotocolo.sqlite';
+}
 
 function createDB()
 {
@@ -17,8 +21,8 @@ function createDB()
 
     try {
         if (file_exists(dirname(__FILE__) . '/update.txt')) {
-            if (!file_exists('/home/' . get_current_user() . '/.miprotocolo/dados/')) {
-                mkdir('/home/' . get_current_user() . '/.miprotocolo/dados/', 0777, true);
+            if (!file_exists($dbConfig['database'])) {
+                mkdir(dirname($dbConfig['database']), 0777, true);
             }
 
             $db1 = new SQLite3($dbConfig['database']);
