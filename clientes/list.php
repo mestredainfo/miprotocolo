@@ -45,6 +45,9 @@ if (!emptyGET('tipo') && !emptyGET('id')) {
 </head>
 
 <body>
+    <div style="margin-top:17px;font-size:27px;font-weight:bold;text-align:center;">
+        Gerenciar Clientes
+    </div>
     <table class="table table-striped">
         <thead>
             <th style="text-align:left;">Nome do Cliente</th>

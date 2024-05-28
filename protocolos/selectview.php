@@ -44,6 +44,9 @@ function getCliente(int $id): string
 </head>
 
 <body>
+<div style="margin-top:17px;font-size:27px;font-weight:bold;text-align:center;">
+        Selecionar Protocolo(s)
+    </div>
     <form name="frmSelectView" method="post" action="view.php">
         <table class="table table-striped">
             <thead>

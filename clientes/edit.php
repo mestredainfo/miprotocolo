@@ -58,12 +58,15 @@ if (!empty($txtID)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar/Editar Clientes - MIProtocolo</title>
+    <title>Adicionar/Editar Cliente - MIProtocolo</title>
     <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+    <div style="margin-top:17px;font-size:27px;font-weight:bold;text-align:center;">
+        Adicionar/Editar Cliente
+    </div>
     <form name="frmEdit" method="post" action="edit.php?id=<?php echo $txtID; ?>">
         <div class="mb-3">
             <label for="txtNome">Nome</label>

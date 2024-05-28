@@ -72,6 +72,9 @@ if (!empty($txtID)) {
 </head>
 
 <body>
+<div style="margin-top:17px;font-size:27px;font-weight:bold;text-align:center;">
+        Adicionar/Editar Protocolo
+    </div>
     <form name="frmEdit" method="post" action="edit.php?id=<?php echo $txtID; ?>">
         <div class="mb-3">
             <label for="txtIDCliente">Nome</label>
