@@ -7,22 +7,18 @@ O MIProtocolo é um software desenvolvido para gerar protocolos para envio e rec
 - Editor de Texto para a Descrição dos Protocolos
 - Gerador de relatórios em PDF usando o [mPDF](https://github.com/mpdf/mpdf)
 
-## Executando da Fonte
+## Requerimento
 
-Para executar MIProtocolo a partir do código-fonte é necessário baixar o MIApp, siga estas etapas:
+- Sistema Operacional: Linux Debian 12 ou superior, Linux Ubuntu 22.04 ou superior, Windows 10 ou superior
+- Arquitetura: x64
+- MIApp 4 ou superior
 
-- Baixe o [MIApp](https://mestredainfo.wordpress.com/miapp/)
-- Extraia o arquivo zip
-- Exclua os arquivos da pasta app do MIApp
-- Copie os arquivos do MIProtocolo para a pasta app
-- Abra a pasta classes
-- Execute o composer `../../php/miappserver composer install`
-- Execute o MIApp
+Para baixar e instalar o MIApp acesse o site oficial do [Mestre da Info](https://mestredainfo.wordpress.com/miapp/).
 
 ## Links
 
-- [Página do MIProtocolo](https://mestredainfo.wordpress.com/miprotocolo/)
-- [Apoie](https://mestredainfo.wordpress.com/apoie/)
+- [Página do MIHash](https://mestredainfo.wordpress.com/mihash/)
+- [Apoie](https://mestredainfo.wordpress.com/assinantes/)
 
 ## Licença
 
