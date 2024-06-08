@@ -29,8 +29,7 @@ error_reporting(E_ALL);
 /* Habilita a exibição de erros */
 ini_set("display_errors", 1);
 
-include_once($documentroot . '/classes/vendor/autoload.php');
+include_once(miPathRoot() . '/classes/vendor/autoload.php');
 
 // Core
-include_once($documentroot . '/controls/funcoes.php');
-include_once($documentroot . '/config.php');
+include_once(miPathRoot() . '/config.php');
