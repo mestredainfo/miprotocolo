@@ -20,30 +20,10 @@ header("Content-Security-Policy: script-src 'self' 'unsafe-inline' script.js");
 </head>
 
 <body>
-    <h1>Sobre o App</h1>
-    <p>MIProtocolo <?php echo file_get_contents(dirname(__FILE__) . '/version'); ?></p>
-    <p>Desenvolvido por: Murilo Gomes Julio</p>
-    <p>Organização: Mestre da Info</p>
-    <p>Site: <a href="javascript:window.externo.rodar('https://mestredainfo.wordpress.com');">mestredainfo.wordpress.com</a></p>
-
-    <p>Copyright &copy; 2004-2024 Murilo Gomes Julio</p>
-
-    <p>Licença: GPL-2.0-only</p>
-
-    <hr class="border border-primary border-3 opacity-75">
-
-    <h3>Recursos de Terceiros Utilizados</h3>
-
-    <p><strong>ElectronJS:</strong> <a href="javascript:window.externo.rodar('https://www.electronjs.org');">electronjs.org</a></p>
-
-    <p><strong>PHP:</strong> <a href="javascript:window.externo.rodar('https://www.php.net');">php.net</a></p>
-
-    <p><strong>Bootstrap:</strong> <a href="javascript:window.externo.rodar('https://getbootstrap.com');">getbootstrap.com</a></p>
-
-    <p><strong>TinyMCE:</strong> <a href="javascript:window.externo.rodar('https://github.com/tinymce/tinymce');">github.com/tinymce/tinymce</a></p>
-
-    <p><strong>mPDF:</strong> <a href="javascript:window.externo.rodar('https://github.com/mpdf/mpdf');">github.com/mpdf/mpdf</a></p>
-
+    <?php echo miAboutApp('
+    <p><strong>TinyMCE:</strong> <a href="javascript:window.miapp.openURL(\'https://github.com/tinymce/tinymce\');">github.com/tinymce/tinymce</a></p>
+    <p><strong>mPDF:</strong> <a href="javascript:window.miapp.openURL(\'https://github.com/mpdf/mpdf\');">github.com/mpdf/mpdf</a></p>
+', true); ?>
     <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="/js/script.js"></script>
 </body>
