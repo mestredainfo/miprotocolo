@@ -1,0 +1,6 @@
+{
+    "intelephense.environment.includePaths": [
+       "/opt/miapp/resources/app/app/libs"
+   ]
+ }
+ 
