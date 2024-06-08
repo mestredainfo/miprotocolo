@@ -12,7 +12,7 @@
             "page": "protocolos/edit.php"
         },
         "Gerenciar": {
-            "page": "index.php?c=1"
+            "page": "protocolos/list.php"
         },
         "separator1": {},
         "Relatório Específico": {
@@ -34,19 +34,30 @@
     "Sobre":
     {
         "Criar Atalho": {
-            "page": "criaratalho.php"
-        },
-        "Documentação": {
-            "url": "https://mestredainfo.wordpress.com/category/miprotocolo/",
-            "key": "F1"
+            "page": "micreateshortcut.php",
+            "newwindow": true,
+            "width": 0,
+            "height": 0,
+            "resizable": false,
+            "menu": false,
+            "hide": true
         },
         "Verificar Atualização": {
-            "page": "checkupdate.php?a=1",
-            "newwindow": true
+            "page": "micheckupdate.php",
+            "newwindow": true,
+            "width": 400,
+            "height": 200,
+            "resizable": false,
+            "menu": false
         },
         "separator": {},
         "Sobre o MIProtocolo": {
-            "page": "sobre.php"
+            "page": "sobre.php",
+            "newwindow": true,
+            "width": 800,
+            "height": 600,
+            "resizable": false,
+            "menu": false
         }
     }
 }
