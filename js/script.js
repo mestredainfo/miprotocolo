@@ -19,7 +19,3 @@ function post(url, data, callback) {
 
     xhr.send(data);
 }
-
-function abrirExterno(url) {
-    window.externo.rodar(url);
-}
