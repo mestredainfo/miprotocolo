@@ -1,3 +1,9 @@
 # Composer
 classes/vendor/
 classes/composer.lock
+
+# plugins
+plugins/
+
+# icon
+icon/
