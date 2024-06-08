@@ -1,0 +1,52 @@
+{
+	"app": {
+		"name": "MIProtocolo",
+		"description": "Gera protocolos para envio e recebimento de documentos.",
+		"version": "2.0.1",
+		"categories": "Office;",
+		"width": 800,
+		"height": 600,
+		"resizable": true,
+		"icon": "miprotocolo.png",
+		"disableHardwareAcceleration": true,
+		"menu": true
+	},
+	"update": {
+		"url": "https://mestredainfo.wordpress.com/miprotocolo/"
+	},
+	"author": {
+		"name": "Murilo Gomes Julio",
+		"email": "contatomestredainfo@gmail.com",
+		"organization": "Mestre da Info",
+		"contact": "https://mestredainfo.wordpress.com/contato/",
+		"url": "https://linktr.ee/mestreinfo"
+	},
+	"copyright": "Copyright (C) 2004-2024 Murilo Gomes Julio",
+	"homepage": "https://mestredainfo.wordpress.com",
+	"bugs": {
+		"url": "https://mestredainfo.wordpress.com/bug-reporting/"
+	},
+	"license": "GPL-2.0-only",
+	"php": {
+		"linux": {
+			"custom": "",
+			"folder": true,
+			"ini": {
+				"custom": "",
+				"folder": true
+			}
+		},
+		"win32": {
+			"custom": "",
+			"folder": true,
+			"ini": {
+				"custom": "",
+				"folder": true
+			}
+		}
+	},
+	"dev": {
+		"menu": false,
+		"tools": false
+	}
+}
