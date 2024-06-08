@@ -9,19 +9,15 @@ if (!defined('mi')) {
     exit;
 }
 
-if (PHP_OS == 'Linux') {
-    $dbConfig['database'] = '/home/' . get_current_user() . '/.miprotocolo/dados/miprotocolo.sqlite';
-} else {
-    $dbConfig['database'] = 'C:/Users/' . get_current_user() . '/.miprotocolo/dados/miprotocolo.sqlite';
-}
+$dbConfig['database'] = miUserPath() . '/.miprotocolo/dados/miprotocolo.sqlite';
 
 function createDB()
 {
     global $dbConfig;
 
     try {
-        if (file_exists(dirname(__FILE__) . '/update.txt')) {
-            if (!file_exists($dbConfig['database'])) {
+        if (!file_exists(dirname($dbConfig['database']) . '/createdb.txt')) {
+            if (!file_exists(dirname($dbConfig['database']))) {
                 mkdir(dirname($dbConfig['database']), 0777, true);
             }
 
@@ -45,7 +41,7 @@ function createDB()
 
             $db1->close();
 
-            unlink(dirname(__FILE__) . '/update.txt');
+            touch(dirname($dbConfig['database']) . '/createdb.txt');
         }
     } catch (SQLite3Exception $e) {
         // Em caso de erro, exibe a mensagem de erro
