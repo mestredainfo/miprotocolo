@@ -17,7 +17,7 @@ Para baixar e instalar o MIApp acesse o site oficial do [Mestre da Info](https:/
 
 ## Links
 
-- [Página do MIHash](https://mestredainfo.wordpress.com/mihash/)
+- [Página do MIProtocolo](https://mestredainfo.wordpress.com/miprotocolo/)
 - [Apoie](https://mestredainfo.wordpress.com/assinantes/)
 
 ## Licença
