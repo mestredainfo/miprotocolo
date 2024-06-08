@@ -17,7 +17,7 @@ function getEmpresa(): string
 
     $txtNome = '';
 
-    $db1 = new select($dbConfig);
+    $db1 = new miDBSelect($dbConfig);
     $db1->table('mi_options')
         ->where('id', 1)
         ->select();
@@ -37,7 +37,7 @@ function getCliente(int $id): string
 
     $txtNome = '';
 
-    $db1 = new select($dbConfig);
+    $db1 = new miDBSelect($dbConfig);
     $db1->table('mi_clientes')
         ->where('id', $id)
         ->select();
@@ -62,11 +62,11 @@ $mpdf->SetAuthor($sEmpresa);
 $mpdf->SetCreator('MIProtocolo');
 $mpdf->SetSubject('Protocolos gerados para o envio e recebimento de documentos');
 
-$db1 = new select($dbConfig);
+$db1 = new miDBSelect($dbConfig);
 
 $db1->ativarPrepare()->table('mi_protocolos');
 
-if (requestPOST()) {
+if (miRequestPOST()) {
     if (!empty($_POST['ids'])) {
         if (is_array($_POST['ids'])) {
             $sIDs = $_POST['ids'];

@@ -5,23 +5,18 @@
 // Organização: Mestre da Info
 // Site: https://linktr.ee/mestreinfo
 
-use MIProtocolo\database\insert;
-use MIProtocolo\database\select;
-use MIProtocolo\database\update;
-
 header("Content-Security-Policy: default-src 'self'");
 header("Content-Security-Policy: script-src 'self' 'unsafe-inline' script.js");
 
-$documentroot = dirname(__FILE__, 2);
-include_once($documentroot . '/includes.php');
+include_once(miPathRoot() . '/includes.php');
 
-$txtID = CleanGET('id');
-if (requestPOST()) {
-    $txtIDCliente = CleanPOST('txtIDCliente');
-    $txtDescricao = addslashes(CleanPOST('txtDescricao'));
+$txtID = miCleanGET('id');
+if (miRequestPOST()) {
+    $txtIDCliente = miCleanPOST('txtIDCliente');
+    $txtDescricao = addslashes(miCleanPOST('txtDescricao'));
 
     if (empty($txtID)) {
-        $db2 = new insert($dbConfig, insert::sqlite3ReadWrite);
+        $db2 = new miDBInsert($dbConfig, miDBInsert::sqlite3ReadWrite);
         $db2->ativarPrepare()
             ->table('mi_protocolos')
             ->insertValue('idcliente', $txtIDCliente)
@@ -29,7 +24,7 @@ if (requestPOST()) {
             ->insert();
         $db2->close();
     } else {
-        $db2 = new update($dbConfig, update::sqlite3ReadWrite);
+        $db2 = new miDBUpdate($dbConfig, miDBUpdate::sqlite3ReadWrite);
         $db2->ativarPrepare()
             ->table('mi_protocolos')
             ->insertValue('idcliente', $txtIDCliente)
@@ -39,13 +34,13 @@ if (requestPOST()) {
         $db2->close();
     }
 
-    redirect(servername() . '/index.php?c=1');
+    miRedirect(miServerName() . '/protocolos/list.php?c=1');
 }
 
 $txtIDCliente = '';
 $txtDescricao = '';
 if (!empty($txtID)) {
-    $db1 = new select($dbConfig, select::sqlite3ReadOnly);
+    $db1 = new miDBSelect($dbConfig, miDBSelect::sqlite3ReadOnly);
     $db1->ativarPrepare()
         ->table('mi_protocolos')
         ->where('id', $txtID)
@@ -81,7 +76,7 @@ if (!empty($txtID)) {
             <select id="txtIDCliente" name="txtIDCliente" class="form-control">
                 <?php
                 $cCliente = false;
-                $db1 = new select($dbConfig, select::sqlite3ReadOnly);
+                $db1 = new miDBSelect($dbConfig, miDBSelect::sqlite3ReadOnly);
                 $db1->table('mi_clientes')
                     ->order('nome')
                     ->select();

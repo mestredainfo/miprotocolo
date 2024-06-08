@@ -16,7 +16,7 @@ function getCliente(int $id): string
 
     $txtNome = '';
 
-    $db1 = new select($dbConfig);
+    $db1 = new miDBSelect($dbConfig);
     $db1->table('mi_clientes')
         ->where('id', $id)
         ->select();
@@ -56,7 +56,7 @@ function getCliente(int $id): string
                 <?php
                 $count = 0;
 
-                $db1 = new select($dbConfig);
+                $db1 = new miDBSelect($dbConfig);
                 $db1->column('id')
                     ->column('idcliente')
                     ->table('mi_protocolos')

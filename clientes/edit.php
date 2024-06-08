@@ -5,26 +5,22 @@
 // Organização: Mestre da Info
 // Site: https://linktr.ee/mestreinfo
 
-use MIProtocolo\database\insert;
-use MIProtocolo\database\select;
-use MIProtocolo\database\update;
-
 $documentroot = dirname(__FILE__, 2);
 include_once($documentroot . '/includes.php');
 
-$txtID = CleanGET('id');
-if (requestPOST()) {
-    $txtNome = CleanPOST('txtNome');
+$txtID = miCleanGET('id');
+if (miRequestPOST()) {
+    $txtNome = miCleanPOST('txtNome');
 
     if (empty($txtID)) {
-        $db2 = new insert($dbConfig, insert::sqlite3ReadWrite);
+        $db2 = new miDBInsert($dbConfig, miDBInsert::sqlite3ReadWrite);
         $db2->ativarPrepare()
             ->table('mi_clientes')
             ->insertValue('nome', $txtNome)
             ->insert();
         $db2->close();
     } else {
-        $db2 = new update($dbConfig, update::sqlite3ReadWrite);
+        $db2 = new miDBUpdate($dbConfig, miDBUpdate::sqlite3ReadWrite);
         $db2->ativarPrepare()
             ->table('mi_clientes')
             ->insertValue('nome', $txtNome)
@@ -33,12 +29,12 @@ if (requestPOST()) {
         $db2->close();
     }
 
-    redirect(servername() . '/clientes/list.php');
+    miRedirect(miServerName() . '/clientes/list.php');
 }
 
 $txtNome = '';
 if (!empty($txtID)) {
-    $db1 = new select($dbConfig, select::sqlite3ReadOnly);
+    $db1 = new miDBSelect($dbConfig, miDBSelect::sqlite3ReadOnly);
     $db1->ativarPrepare()
         ->table('mi_clientes')
         ->where('id', $txtID)

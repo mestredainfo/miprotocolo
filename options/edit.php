@@ -12,10 +12,10 @@ use MIProtocolo\database\update;
 $documentroot = dirname(__FILE__, 2);
 include_once($documentroot . '/includes.php');
 
-if (requestPOST()) {
-    $txtNome = CleanPOST('txtNome');
+if (miRequestPOST()) {
+    $txtNome = miCleanPOST('txtNome');
 
-    $db2 = new update($dbConfig, update::sqlite3ReadWrite);
+    $db2 = new miDBUpdate($dbConfig, miDBUpdate::sqlite3ReadWrite);
     $db2->ativarPrepare()
         ->table('mi_options')
         ->insertValue('nome', $txtNome)
@@ -23,12 +23,12 @@ if (requestPOST()) {
         ->update();
     $db2->close();
 
-    redirect(servername() . '/options/edit.php?tipo=atualizado');
+    miRedirect(miServerName() . '/options/edit.php?tipo=atualizado');
 }
 
 $txtNome = '';
 
-$db1 = new select($dbConfig);
+$db1 = new miDBSelect($dbConfig);
 $db1->table('mi_options')
     ->where('id', 1)
     ->select();
@@ -47,13 +47,13 @@ while ($row = $db1->fetch()) {
 $db1->close();
 
 if (!$comRegistro) {
-    $db2 = new insert($dbConfig, insert::sqlite3ReadWrite);
+    $db2 = new miDBInsert($dbConfig, miDBInsert::sqlite3ReadWrite);
     $db2->table('mi_options')
         ->insertValue('nome', 'Nome da Empresa')
         ->insert();
     $db2->close();
 
-    redirect('edit.php');
+    miRedirect('edit.php');
 }
 ?>
 <!DOCTYPE html>
