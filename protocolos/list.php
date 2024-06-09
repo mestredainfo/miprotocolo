@@ -7,7 +7,7 @@
 
 include_once(miPathRoot() . '/includes.php');
 
-if (!$miEmptyGET('tipo') && !$miEmptyGET('id')) {
+if (!miEmptyGET('tipo') && !miEmptyGET('id')) {
     if (miCleanGET('tipo') == 'removeitem') {
         $sID = miCleanGET('id', FILTER_SANITIZE_NUMBER_INT);
 
