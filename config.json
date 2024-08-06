@@ -1,0 +1,20 @@
+{
+	"sistema": {
+		"nome": "MIProtocolo",
+		"versao": "2.0.0",
+		"quadro": true,
+		"largura": 800,
+		"altura": 600,
+		"redimensionar": false,
+		"icon": "miprotocolo.png",
+		"desativarAceleracaoHardware": true
+	},
+	"servidor": {
+		"perm": true,
+		"rotas": false
+	},
+	"dev": {
+		"menu": false,
+		"ferramentas": false
+	}
+}

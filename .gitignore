@@ -1,0 +1,12 @@
+# Composer
+classes/vendor/
+classes/composer.lock
+
+# icon
+icon/
+
+# plugins
+plugins/
+
+# vscode
+.vscode/

@@ -1,0 +1,82 @@
+{
+    "Clientes": {
+        "Adicionar": {
+            "pagina": "clientes/edit.php"
+        },
+        "Gerenciar": {
+            "pagina": "clientes/list.php"
+        }
+    },
+    "Protocolo": {
+        "Adicionar": {
+            "pagina": "protocolos/edit.php"
+        },
+        "Gerenciar": {
+            "pagina": "protocolos/list.php"
+        },
+        "separador1": {},
+        "Relatório Específico": {
+            "pagina": "protocolos/selectview.php"
+        },
+        "Relatório Geral": {
+            "pagina": "protocolos/view.php"
+        }
+    },
+    "Configurações": {
+        "Cadastro da Empresa": {
+            "pagina": "options/edit.php"
+        },
+        "separador1": {},
+        "Corrigir Dados": {
+            "pagina": "dados/repair.php"
+        }
+    },
+    "Ajuda": {
+        "Criar Atalho": {
+            "pagina": "criaratalho.php",
+            "novajanela": true,
+            "largura": 0,
+            "altura": 0,
+            "redimensionar": false,
+            "menu": false,
+            "ocultar": true
+        },
+        "separador1": {},
+        "Documentação": {
+            "url": "https://www.mestredainfo.com.br/2024/06/documentacao-miprotocolo.html",
+            "atalho": "F1"
+        },
+        "separador2": {},
+        "Site do Mestre da Info": {
+            "url": "https://www.mestredainfo.com.br"
+        },
+        "YouTube do Mestre da Info": {
+            "url": "https://www.youtube.com/@mestredainfo"
+        },
+        "Relatar Problema": {
+            "url": "https://www.mestredainfo.com.br/p/relatorio-de-bug.html"
+        },
+        "separador3": {},
+        "Verificar Atualização": {
+            "pagina": "verificaratualizacao.php",
+            "novajanela": true,
+            "largura": 400,
+            "altura": 200,
+            "redimensionar": false,
+            "menu": false
+        },
+        "separador4": {},
+        "Apoie o MIProtocolo": {
+            "url": "https://www.mestredainfo.com.br/p/apoie.html"
+        },
+        "separador5": {},
+        "Sobre o MIProtocolo": {
+            "pagina": "sobre.php",
+            "novajanela": true,
+            "largura": 800,
+            "altura": 600,
+            "redimensionar": false,
+            "menu": false
+        }
+    }
+}
